@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+        .verde {
+            background-color: green;
+        }
+
+        .preto {
+            background-color: black;
+        }
+        
+        .azul {
+            background-color: blue;
+
+        }
+
+        .vermelho {
+            background-color: red;
+        }
+
+        .amarelo {
+            background-color: yellow;
+        }
+
+        .borda {
+            border: 1px solid;
+        }
+
+        .div-principal {
+            width: 200px;
+            height: 200px;
+        }
+
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+
+    <div id="app">
+        <!-- Um modo de atalho para abrir um link e informa que foi acessado! -->
+        <!-- v-on:click.prevent - O link não vai abrir porém a mensagem vai aparecer --> 
+        <!-- v-on:click="prevenirComportamentoPadrao($event) - Também vai para quando eu for pega lá no methods isso -> event.preventDefault() ."-->
+        <a href="https://www.google.com.br/?hl=pt-BR" 
+            target="_blank" 
+            v-on:click.prevent="prevenirComportamentoPadrao()">
+            Link
+        </a>
+        <br>
+            Mensagem: {{ msg }}
+        <hr>
+            <!-- Usando o .once ele só vai deixar se disparado uma vez e não vai deixar mais. -->
+            <button @click.once="executarUmaVez()">Botão</button>
+            <p>Cliques: {{ cliques }}</p>
+        <hr>
+            <!-- Usando o o Submir ele é um envio de formulario que sempre atualizar a pagina. -->
+            <!-- Usando o @submit.prevent.once vai ser usando uma unica vez. e depois atualizar a pagina. -->
+            <form @submit.prevent.once="prevenirUmaVez()" >
+                <button type="submit"> Enviar </button>
+            </form>
+            <p>Formulário {{ formulario }}</p>
+        <hr>
+            <!-- Usando o @keyup usado para reconhecer as teclas que forem digitadas.  -->
+            <input type="text" @keyup="capturandoTeclas($event)">
+            <p>Teclas: {{ teclas }}</p>
+            
+    </div>
+
+    <script>
+        const vm = new Vue({
+               el: '#app',
+               data: {
+                msg: '',
+                cliques: 0,
+                formulario: '',
+                teclas: ''
+            },
+               methods: {
+                prevenirComportamentoPadrao(event) {
+                    // event.preventDefault(); // Usando esse methods prevent ele interrompe. // Utilizando também já no click assim ".prevent"
+                    this.msg = 'Comportamento padrão ativado'
+                },
+                    // Vai somando 
+                executarUmaVez() { 
+                    this.cliques++
+                },
+                    // Quando clicando em enviar o formulario vai enviar esse texto
+                prevenirUmaVez() {
+                    this.formulario = 'Prevenindo o comportamento padrão'
+                },
+                    // 
+                capturandoTeclas(event) {
+                    this.teclas += event.key
+                }
+               }
+            })
+    </script>
+</body>
+</html>

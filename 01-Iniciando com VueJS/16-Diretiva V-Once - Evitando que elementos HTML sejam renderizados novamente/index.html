@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+    <div id="app">
+        <!-- Usando o v-once -> vai para de rendezidar. quem tiver com o v-once não não vai alterar mais. -->
+        <p v-once>Saldo inicial: {{ saldo }}</p>
+        <p>Saldo atualizado: {{ saldo }}</p>
+        <input type="text" id="valor">
+        <button @click="creditar()">Creditar</button>
+        <button @click="debitar()">Debitar</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                saldo: 0
+            },
+            methods: {
+                creditar(){
+                    // parseFloat - Vai adiciona numeros ou subtrair numeros
+                    this.saldo += parseFloat(valor.value)
+                },
+                debitar(){
+                    this.saldo -= parseFloat(valor.value)
+                }
+            }
+            })
+    </script>
+</body>
+</html>

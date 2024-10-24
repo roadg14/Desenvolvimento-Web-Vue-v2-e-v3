@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas!</h1>
+
+    <!-- Esta selecionando o el: -->
+    <div id="app">
+        <!-- Fazendo um Binding de data:{}. -->
+        {{ mensagem }} <br>
+        Valor total: {{ valorTotal }} <br>
+        Logado: {{ logado }} <br>
+        Hobbies: {{ hobbies }} <br>
+        Perfil: {{ perfil.email }}, {{ perfil.cursos }}
+    </div>
+
+    <script>
+        const vm = new Vue({
+                el: '#app', // # Para selecionar por id | . Para selecionar por class
+                data: { // Variáveis / Atributos reativos.
+                    // Fazendo interpolação em todos esses propriedades.
+                    mensagem: 'Primeira comunicação com o Vue.js', // String.
+                    valorTotal: 150.47, // Number.
+                    logado: false, // Booleano.
+                    hobbies: [ // Array
+                        'Jogar',
+                        'Sair com a namorada',
+                        'Ler',
+                        'Assistir desenhos'
+                    ],
+                    perfil: {
+                        nome: 'Douglas Rodrigues Ferreira Campos',
+                        idade: 26,
+                        email: 'douglas@teste.com.br',
+                        cursos: [
+                            { 
+                                nome: 'Sistema',
+                                cargaHoraria: '50 Horas'
+                            },
+                            { 
+                                nome: 'Analista de Sistema',
+                                cargaHoraria: '60 Horas' 
+                            }
+                        ]
+                    }
+                }
+            }) // vm = ViewModel
+    </script>
+</body>
+</html>

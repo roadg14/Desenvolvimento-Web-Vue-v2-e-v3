@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+
+    <!-- Esta selecionando o el: -->
+    <div id="app">
+        <!-- Para funcionar o methods terá que chama assim -> {{ a função e os paranteses() }}-->
+        {{ somar() }} <br>
+        {{ subtrair() }} <br>
+        {{ multiplicar() }} <br>
+        {{ dividir() }} <br>
+
+    </div>
+
+    <script>
+        const vm = new Vue({
+                el: '#app', // # Para selecionar por id | . Para selecionar por class
+                data: { // Variáveis / Atributos reativos.
+                    // Usando o this. o methods pode pegar os atributos do data{}.
+                    n1: 10,
+                    n2: 5
+                },
+                methods: { // Esse atributo recebe objetos.
+                    somar: function somar() { // Forma convencional.
+                        // Usando o this. para se comunicar com data{}.
+                        return this.n1 + this.n2
+                    },
+                    subtrair: function() { // Forma anônima.
+                        return this.n1 - this.n2
+                    },
+                    multiplicar: () => { // Forma arrow function.
+                        // As arrow function não pega.
+                        return this.n1 * this.n2 // Contexto léxico
+                    },
+                    dividir() { // Forma enxuta de definir os pares de chaves/valor
+                        return this.n1 / this.n2
+                    },
+
+                },
+            }) // vm = ViewModel
+    </script>
+</body>
+</html>

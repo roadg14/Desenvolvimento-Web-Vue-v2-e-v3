@@ -1,0 +1,20 @@
+Tem que fazer o download do framework do vue. que é esse vue.js
+Link -> 
+
+Adicionando o Vue.js. o script.
+<script src="./vue.js"></script> <!-- Referenciando o vue.js para que funcione no navegador. -->
+
+<script>
+
+    options = {
+                el: '#app', // # Para selecionar por id | . Para selecionar por class
+                data: { // Variáveis / Atributos reativos.
+                    mensagem: 'Primeira comunicação com o Vue.js'
+                }
+            }
+
+            const vm = new Vue(options) // vm = ViewModel
+
+            console.log(vm)
+            
+</script>

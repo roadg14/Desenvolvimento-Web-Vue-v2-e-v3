@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style>
+        /* Usando CSS, v-bind vai buscar no data e o data ta buscando a class verde.*/
+        .verde {
+            color: green;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+
+    <!-- Esta selecionando o el: -->
+    <div id="app">
+        <!-- Diretiva V-Bind - Realizando o bind de atributos de tags HTML -->
+        <!-- v-bind -> é para pega a referencia lá do data. -->
+        <!-- o v-bind também pode ser usando só com ' : '  -->
+        <a :href="site">Site</a>
+        <!-- v-bind:class | Pegando do data que vai até o style acessando a cor no CSS. -->
+        <p :class="cor">Entendendo a diretiva v-bind</p>
+        <!-- v-bind:placeholder |Pegando as informações lá do data.-->
+        <!-- v-bind:value | Pegando a informação de lá no data.-->
+        <input type="text" :placeholder="instrucaoDePreenchimento" :value="valor">
+        <!-- v-bind:checked | Pegando a informação de lá no data -->
+        <input type="checkbox" :checked="check">
+    </div>
+
+    <script>
+        const vm = new Vue({
+                el: '#app', // # Para selecionar por id | . Para selecionar por class
+                // Variáveis / Atributos reativos.
+                data: {
+                    // Referenciando lá no v-bind:href
+                    site: 'https://douglasrodrigues.com.br/',
+                    // Referenciando lá no v-bind:class. 
+                    // style tem uma class verde.
+                    cor: 'verde',
+                    // Referenciando lá no v-bind:placeholder.
+                    instrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
+                    // Referenciando lá no v-bind:value.
+                    valor: 'Entendendo a diretiva v-bind',
+                    // Referenciando lá no v-bind:checked.
+                    check: true
+
+                },
+                // Esse atributo recebe objetos.
+                methods: {}
+            }) // vm = ViewModel
+    </script>
+</body>
+</html>

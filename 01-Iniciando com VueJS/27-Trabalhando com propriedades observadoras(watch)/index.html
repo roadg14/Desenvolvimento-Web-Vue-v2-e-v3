@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Douglas Rodrigues!</h1>
+    <div id="app">
+        <span>Paciente: </span><input type="text" v-model="paciente">
+        <br>
+        <ul>
+            <li v-for="p in lista">{{p.nome}}, {{p.idade}}</li>
+        </ul>
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                paciente: '',
+                pacientes: [
+                    { nome: 'Jorge Sant Ana', idade: 32 },
+                    { nome: 'João Santos', idade: 45},
+                    { nome: 'José Auguto', idade: 18 },
+                    { nome: 'Júnior Silva', idade: 20 },
+                    { nome: 'Julho Nogueira', idade: 50},
+                ],
+                lista: []
+            },
+            methods: {},
+            computed: {},
+            // watch -> Instancia de Vue. tem que ter a mesma compatibilidade com o mesmo nome do methods.
+            // para que o wacth sabia que tenha que disparar esse methods
+            watch: {
+                // Fazendo um acompanhamento de mudança de estado.
+                paciente(valorNovo) {
+                    console.log(valorNovo)
+                    this.lista = this.pacientes.filter(p => p.nome.match(valorNovo))
+                }
+            }
+        })
+    </script>
+</body>
+</html>

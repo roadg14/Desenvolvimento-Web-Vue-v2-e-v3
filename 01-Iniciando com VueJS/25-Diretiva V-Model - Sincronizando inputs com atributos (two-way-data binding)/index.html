@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+    <div id="app">
+        <!-- Para resgata o atributo do vue(data). precisa do V-bind.-->
+        <!-- Para Alterar o data, tem que criar um method com o v-on e pegando o event. -->
+        {{ paciente }} <br>
+        <!-- V-model uma sintaxe muito mais simples de atualizar um input. -->
+        <input type="text" v-model="paciente">
+        <!-- <input type="text" v-bind:value="paciente" v-on:keyup="setPaciente($event)"> -->
+        <!-- <input type="text" :value="paciente" @keyup="setPaciente($event)"> -->
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                paciente: 'Douglas Rodrigues'
+            },
+            methods: {
+                setPaciente() {
+                    this.paciente = e.target.value
+                }
+            },
+            computed: {
+            }
+        })
+    </script>
+</body>
+</html>

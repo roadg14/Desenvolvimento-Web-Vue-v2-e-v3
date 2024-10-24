@@ -1,0 +1,1 @@
+Um exemplo: 01-projeto-vue-padrao> npm run serve -- --port 3001

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+    <div id="app">
+        <!-- Usando a tag template -->
+        <template v-if="saudacao"> <!-- Renderização Condicional -->
+            <h1>Boas-vindas</h1>
+            <p>Conteúdo da tag <strong>templae</strong></p>
+        </template>
+
+        <template v-for="n in 10">
+            <p>2 x {{n}} = {{ 2*n }}</p>
+        </template>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                saudacao: true
+            },
+            methods: {
+                
+            }
+        })
+    </script>
+</body>
+</html>

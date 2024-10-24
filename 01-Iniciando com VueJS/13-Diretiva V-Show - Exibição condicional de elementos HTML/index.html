@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+    <div id="app">
+        <!-- Quando o mouse mover vai aparecer o texto e quando remover o mouse vai sumir.-->
+        <p @mouseover="exibirTextoAjuda = true" @mouseout="exibirTextoAjuda = false">Exemplo tooltip</p>
+        <!-- Vai  ajudar mostra com -->
+        <div v-show="exibirTextoAjuda">
+            <h3>Testando</h3>
+            <p>Testando me ajuda</p>
+        </div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+               el: '#app',
+               data: {
+                    exibirTextoAjuda: false
+               },
+               methods: {
+
+               }
+            })
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+    <div id="app">
+        {{ paciente}}<br>
+        <!-- <input type="text" :value="paciente" @keyup="pacinete = $event.target.value"> -->
+        <input type="text" v-model="paciente">
+        <hr>
+        <!-- Fazendo a seleção de um só na hora de confirmar -->
+        <input type="radio" value="f" v-model="sexo" >Feminino
+        <input type="radio" value="m" v-model="sexo" >Masculino
+        <br> {{ sexo }}
+        <hr>
+
+        <!-- Pratica com o Select -->
+        <select v-model="plano">
+            <!-- o disabled deixa ele não ser selecionado.-->
+            <option value="" disabled>Selecione um plano</option>
+            <option value="1">Básico 1</option>
+            <option value="2">Básico 2</option>
+            <option value="3">Master</option>
+        </select>
+        <br> {{plano}}
+        <hr>
+        <!-- Praticando com Ckeckbox -->
+        <input type="checkbox" value="100" v-model="doencas">Asma
+        <input type="checkbox" value="101" v-model="doencas">Diabetes tipo 1
+        <input type="checkbox" value="103" v-model="doencas">Rinite
+        <br> {{ doencas }}
+        <hr>
+        <textarea v-model="diagnostico"></textarea>
+        <br>{{ diagnostico }}
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                paciente: 'Douglas Rodrigues',
+                sexo: '',
+                plano: '',
+                doencas: [],
+                diagnostico: ''
+            },
+            methods: {
+            },
+            computed: {
+            }
+        })
+    </script>
+</body>
+</html>

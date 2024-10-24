@@ -1,0 +1,3 @@
+Comando para Ativa o Vue ui -> vue ui.
+Vai abrir esse http://localhost:8000/project/select
+no navegador.

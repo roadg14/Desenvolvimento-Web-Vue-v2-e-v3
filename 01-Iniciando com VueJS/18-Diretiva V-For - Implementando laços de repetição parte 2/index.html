@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <style> /* */
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+    <div id="app">
+        <!-- Implementando laços de repetição -->
+        <ul>
+            <!-- Um Array -->
+            <!-- V-for um loop de repetição. --> <!-- Também tem essa forma -> <li v-for="curso in cursos" v-text="curso"></li>-->
+            <li v-for="curso in cursos">{{ curso }}</li>
+            <li v-for="curso in cursos" v-text="curso"></li>
+            <li v-for="(curso, chave) in cursos">{{chave}} - {{curso}}</li>
+            <hr>
+
+            <table border="">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Para pega o ID -> v-for="curso, chave in cursos2" -->
+                    <!-- <tr v-for="({titulo, descricao}, chave) in cursos2"> um modo de destrutuir, um por um {titulo}, {descricao}-->
+                    <!-- "(curso, chave) in cursos2" -->
+                    <tr v-for="({titulo, descricao}, chave) in cursos2"> <!-- destructuring assignment -->
+                        <td>{{chave}}</td>
+                        <!-- Acessando o objeto. -->
+                        <td>{{titulo}}</td>
+                        <td>{{descricao}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </ul>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                // Array []
+                cursos: ['Laravel', 'Web Completo', ' Banco de Dados', 'Solid', 'Angular'],
+                // Objetos {}
+                cursos2: {
+                    1000: {titulo: 'Laravel', descricao: 'Domine o framework PHP mais poderoso do mundo'},
+                    1001: {titulo: 'Banco de Dados', descricao: 'Aprenda os principais DBs relacionais do mercado'}
+                }
+            },
+            methods: {
+                
+            }
+            })
+    </script>
+</body>
+</html>

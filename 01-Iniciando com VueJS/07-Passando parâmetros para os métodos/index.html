@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> Também pode ser referido com o link CDN. -->
+    <!-- <script src="./vue.js"></script> Referenciando o vue.js para que funcione no navegador. -->
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Douglas Rodrigues!</h1>
+
+    <!-- Esta selecionando o el: -->
+    <div id="app">
+        <!-- Diretiva V-On - Manipulando eventos -->
+        <!-- Methods - Passando parâmetros para os métodos -->
+        <input type="text" v-on:keyup="imprimirTexto('Enviado parâmentro', 5)">
+        <!-- v-on:click -> Quando for clicado ai sim vai fazer o evento -->
+        <button v-on:click="imprimirAlert()">Alert</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+               el: '#app',
+               data: {
+                xyz: true
+               },
+               methods: {
+                // Methods - Passando parâmetros para os métodos.
+                imprimirTexto(t, n, x) { // Consegue usar mais de um parametro.
+                    console.log(t)
+                    console.log(n)
+                    console.log(this.xyz)
+                },
+                imprimirAlert(){
+                    alert('Mensagem de Alerta!')
+                }
+               }
+            })
+    </script>
+</body>
+</html>

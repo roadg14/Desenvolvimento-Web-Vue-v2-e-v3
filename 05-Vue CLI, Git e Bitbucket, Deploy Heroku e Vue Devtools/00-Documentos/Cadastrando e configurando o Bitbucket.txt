@@ -1,3 +1,5 @@
+https://bitbucket.org/
+
 Linhas de comando para configura o repositorio para o Bitbucket
 
 ----Comando----
@@ -6,3 +8,7 @@ Linhas de comando para configura o repositorio para o Bitbucket
 
 2 - Segundo adicionar -> git remote add "Nome do Repositorio" + https://que é o caminho para o repositorio.
 Exemplo: git remote add repositorioBitbucket https://desenvolvimento-vue-admin@bitbucket.org/desenvolvimento-vuejs/projeto-vue-padrao.git
+
+3 - Manda mandar os arquivos é -> git push "e o nome do repositorio"
+Exemplo: git push repositorioBitbucket.
+e depois autenticar com senha.

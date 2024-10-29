@@ -1,0 +1,8 @@
+Adicionando o Plugin de Rotas.
+-> vue add @vue/cli-plugin-router
+
+
+Para instartar o um server de produção é assim -> npm run serve -- --mode production
+------------------------------------------------------------------------
+
+Usando o eslint com projeto prodemos usar o npm run lint para formata os codigos.

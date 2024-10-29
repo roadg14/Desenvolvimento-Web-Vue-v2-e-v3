@@ -1,0 +1,2 @@
+Após fazer o server.js com a configuração node.js e express
+vai ter que fazer um npm run build para pega a aplicação de produção. 
